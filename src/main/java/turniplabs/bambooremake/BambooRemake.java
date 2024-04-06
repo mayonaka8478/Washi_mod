@@ -1,4 +1,4 @@
-package turniplabs.examplemod;
+package turniplabs.bambooremake;
 
 import net.fabricmc.api.ModInitializer;
 import org.slf4j.Logger;
@@ -7,8 +7,8 @@ import turniplabs.halplibe.util.GameStartEntrypoint;
 import turniplabs.halplibe.util.RecipeEntrypoint;
 
 
-public class Bamboo_Remake implements ModInitializer, GameStartEntrypoint, RecipeEntrypoint {
-    public static final String MOD_ID = "examplemod";
+public class BambooRemake implements ModInitializer, GameStartEntrypoint, RecipeEntrypoint {
+	public static final String MOD_ID = "bambooremake";
     public static final Logger LOGGER = LoggerFactory.getLogger(MOD_ID);
     @Override
     public void onInitialize() {

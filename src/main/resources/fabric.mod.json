@@ -1,12 +1,11 @@
 {
   "schemaVersion": 1,
-  "id": "examplemod",
+	"id": "bambooremake",
   "version": "${version}",
-
-  "name": "Example Mod",
-  "description": "This mod aims to help new BTA modders.",
+	"name": "Bamboo Remake",
+	"description": "Japanese style mod for Better than Adventure, based on Bamboo mod developed by ruby",
   "authors": [
-    "Turnip Labs"
+		"mayonaka8478"
   ],
   "contact": {
     "homepage": "",
@@ -19,20 +18,20 @@
   "environment": "*",
   "entrypoints": {
     "main": [
-			"turniplabs.examplemod.ExampleMod"
+			"turniplabs.bambooremake.BambooRemake"
     ],
 		"beforeGameStart": [
-			"turniplabs.examplemod.ExampleMod"
+			"turniplabs.bambooremake.BambooRemake"
 		],
 		"afterGameStart": [
-			"turniplabs.examplemod.ExampleMod"
+			"turniplabs.bambooremake.BambooRemake"
 		],
 		"recipesReady": [
-			"turniplabs.examplemod.ExampleMod"
+			"turniplabs.bambooremake.BambooRemake"
 		]
 	},
   "mixins": [
-      "examplemod.mixins.json"
+		"bambooremake.mixins.json"
   ],
 
   "depends": {
