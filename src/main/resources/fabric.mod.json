@@ -18,19 +18,19 @@
   "environment": "*",
   "entrypoints": {
     "main": [
-			"turniplabs.bambooremake.BambooRemake"
+			"mayonaka8478.bambooremake.BambooRemake"
     ],
 		"beforeGameStart": [
-			"turniplabs.bambooremake.BambooRemake"
+			"mayonaka8478.bambooremake.BambooRemake"
 		],
 		"afterGameStart": [
-			"turniplabs.bambooremake.BambooRemake"
+			"mayonaka8478.bambooremake.BambooRemake"
 		],
 		"recipesReady": [
-			"turniplabs.bambooremake.BambooRemake"
+			"mayonaka8478.bambooremake.BambooRemake"
 		],
 		"client": [
-			"turniplabs.bambooremake.BambooRemakeClient"
+			"mayonaka8478.bambooremake.BambooRemakeClient"
 		]
 	},
   "mixins": [

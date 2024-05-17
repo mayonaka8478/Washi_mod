@@ -1,5 +1,6 @@
-package turniplabs.bambooremake;
+package mayonaka8478.bambooremake;
 
+import mayonaka8478.bambooremake.block.ModBlocks;
 import net.fabricmc.api.ModInitializer;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -17,7 +18,7 @@ public class BambooRemake implements ModInitializer, GameStartEntrypoint, Recipe
 
 	@Override
 	public void beforeGameStart() {
-
+		ModBlocks.createBlocks();
 	}
 
 	@Override
