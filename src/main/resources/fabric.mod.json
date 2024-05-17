@@ -36,7 +36,7 @@
 
   "depends": {
 		"minecraft": "~7.2-beta.1",
-		"fabricloader": ">=0.15.6",
+		"fabricloader": ">=0.15.6-babric.6-bta",
 		"dragonfly": ">=1.5.0-7.2-pre1"
   },
   "suggests": {
