@@ -28,6 +28,9 @@
 		],
 		"recipesReady": [
 			"turniplabs.bambooremake.BambooRemake"
+		],
+		"client": [
+			"turniplabs.bambooremake.BambooRemakeClient"
 		]
 	},
   "mixins": [
