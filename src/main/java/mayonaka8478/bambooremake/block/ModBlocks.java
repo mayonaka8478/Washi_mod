@@ -11,7 +11,7 @@ import turniplabs.halplibe.helper.BlockBuilder;
 public class ModBlocks {
 	public static final Block tatami = new BlockBuilder(BambooRemake.MOD_ID)
 		.setResistance(5.0f)
-		.setHardness(0.5f)
+		.setHardness(0.1f)
 		.setBlockSound(BlockSounds.GRASS)
 		.setBlockModel(block -> {
 			return new BlockModelAxisAligned<>(block).withTextures("bambooremake:block/tatami_top", "bambooremake:block/tatami");
