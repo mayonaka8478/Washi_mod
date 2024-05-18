@@ -1,6 +1,7 @@
 package mayonaka8478.bambooremake.block;
 
 import mayonaka8478.bambooremake.BambooRemake;
+import mayonaka8478.bambooremake.IDUtils;
 import net.minecraft.client.render.block.model.BlockModelAxisAligned;
 import net.minecraft.core.block.Block;
 import net.minecraft.core.block.BlockAxisAligned;
@@ -16,7 +17,7 @@ public class ModBlocks {
 		.setBlockModel(block -> {
 			return new BlockModelAxisAligned<>(block).withTextures("bambooremake:block/tatami_top", "bambooremake:block/tatami");
 		})
-		.build(new BlockAxisAligned("tatami", 8401, Material.decoration));
+		.build(new BlockAxisAligned("tatami", IDUtils.getCurrBlockId(), Material.decoration));
 
 	public static void createBlocks() {
 
