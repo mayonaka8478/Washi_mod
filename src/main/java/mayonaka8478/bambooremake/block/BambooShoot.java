@@ -3,6 +3,7 @@ package mayonaka8478.bambooremake.block;
 import net.minecraft.core.block.Block;
 import net.minecraft.core.block.entity.TileEntity;
 import net.minecraft.core.block.material.Material;
+import net.minecraft.core.block.tag.BlockTags;
 import net.minecraft.core.enums.EnumDropCause;
 import net.minecraft.core.item.ItemStack;
 import net.minecraft.core.util.phys.AABB;
@@ -25,8 +26,20 @@ public class BambooShoot extends Block {
 	}
 
 	@Override
+	public boolean canPlaceBlockAt(World world, int x, int y, int z) {
+		return super.canPlaceBlockAt(world, x, y, z) && this.canThisPlantGrowOnThisBlockID(world.getBlockId(x, y - 1, z));
+	}
+
+	@Override
 	public boolean canBlockStay(World world, int x, int y, int z) {
-		return world.getBlockId(x, y - 1, z) == Block.dirt.id || world.getBlockId(x, y - 1, z) == Block.grass.id;
+		return (world.getFullBlockLightValue(x, y, z) >= 8 || world.canBlockSeeTheSky(x, y, z)) && this.canThisPlantGrowOnThisBlockID(world.getBlockId(x, y - 1, z));
+	}
+
+	protected boolean canThisPlantGrowOnThisBlockID(int i) {
+		if (Block.blocksList[i] == null) {
+			return false;
+		}
+		return Block.blocksList[i].hasTag(BlockTags.GROWS_FLOWERS);
 	}
 
 	@Override
