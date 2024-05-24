@@ -32,7 +32,7 @@ public class BambooShoot extends Block {
 
 	@Override
 	public boolean canBlockStay(World world, int x, int y, int z) {
-		return (world.getFullBlockLightValue(x, y, z) >= 8 || world.canBlockSeeTheSky(x, y, z)) && this.canThisPlantGrowOnThisBlockID(world.getBlockId(x, y - 1, z));
+		return (world.canBlockSeeTheSky(x, y, z)) && this.canThisPlantGrowOnThisBlockID(world.getBlockId(x, y - 1, z));
 	}
 
 	protected boolean canThisPlantGrowOnThisBlockID(int i) {
@@ -40,6 +40,18 @@ public class BambooShoot extends Block {
 			return false;
 		}
 		return Block.blocksList[i].hasTag(BlockTags.GROWS_FLOWERS);
+	}
+
+	public void onNeighborBlockChange(World world, int x, int y, int z, int blockId) {
+		super.onNeighborBlockChange(world, x, y, z, blockId);
+		this.func_268_h(world, x, y, z);
+	}
+
+	protected final void func_268_h(World world, int i, int j, int k) {
+		if (!this.canBlockStay(world, i, j, k)) {
+			this.dropBlockWithCause(world, EnumDropCause.WORLD, i, j, k, world.getBlockMetadata(i, j, k), null);
+			world.setBlockWithNotify(i, j, k, 0);
+		}
 	}
 
 	@Override
