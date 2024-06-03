@@ -5,6 +5,7 @@ import mayonaka8478.bambooremake.IDUtils;
 import net.minecraft.client.render.block.model.BlockModelAxisAligned;
 import net.minecraft.client.render.block.model.BlockModelCropsWheat;
 import net.minecraft.client.render.block.model.BlockModelCrossedSquares;
+import net.minecraft.client.render.item.model.ItemModelStandard;
 import net.minecraft.core.block.Block;
 import net.minecraft.core.block.BlockAxisAligned;
 import net.minecraft.core.block.material.Material;
@@ -37,6 +38,10 @@ public class ModBlocks {
 		.setHardness(0.0f)
 		.setBlockSound(BlockSounds.STONE)
 		.setBlockModel(block -> new BlockModelCrossedSquares<>(block).withTextures("bambooremake:block/bamboo_shoot"))
+		.setTags(BlockTags.MINEABLE_BY_HOE)
+		.setItemModel(item -> {
+			return new ItemModelStandard(item, BambooRemake.MOD_ID);
+		})
 		.build(new BambooShoot("bamboo_shoot", IDUtils.getCurrBlockId()));
 	//bamboo
 	public static final Block bamboo = new BlockBuilder(BambooRemake.MOD_ID)
@@ -47,6 +52,5 @@ public class ModBlocks {
 		.build(new Bamboo("bamboo", IDUtils.getCurrBlockId()));
 
 	public static void createBlocks() {
-
 	}
 }

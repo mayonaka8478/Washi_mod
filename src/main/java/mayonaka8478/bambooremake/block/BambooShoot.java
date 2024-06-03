@@ -1,8 +1,8 @@
 package mayonaka8478.bambooremake.block;
 
+import mayonaka8478.bambooremake.ModMaterial;
 import net.minecraft.core.block.Block;
 import net.minecraft.core.block.entity.TileEntity;
-import net.minecraft.core.block.material.Material;
 import net.minecraft.core.block.tag.BlockTags;
 import net.minecraft.core.enums.EnumDropCause;
 import net.minecraft.core.item.ItemStack;
@@ -12,7 +12,7 @@ import net.minecraft.core.world.WorldSource;
 
 public class BambooShoot extends Block {
 	public BambooShoot(String key, int id) {
-		super(key, id, Material.vegetable);
+		super(key, id, ModMaterial.bamboo_shoot);
 	}
 
 	@Override
@@ -62,6 +62,8 @@ public class BambooShoot extends Block {
 	@Override
 	public ItemStack[] getBreakResult(World world, EnumDropCause dropCause, int x, int y, int z, int meta, TileEntity tileEntity) {
 		switch (dropCause) {
+			case PROPER_TOOL:
+				return new ItemStack[]{new ItemStack(this)};
 			default:
 				return null;
 		}
