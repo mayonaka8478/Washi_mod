@@ -4,7 +4,6 @@
   "package": "mayonaka8478.bambooremake.mixin",
     "compatibilityLevel": "JAVA_8",
     "mixins": [
-      "MaterialMixin"
     ],
     "client": [
     ],
