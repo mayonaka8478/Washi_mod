@@ -123,7 +123,7 @@ public class Bamboo extends Block
 				int y2 = y + lowerHeight + world.rand.nextInt(2) - world.rand.nextInt(5);
 				int z2 = z + world.rand.nextInt(2) - world.rand.nextInt(2);
 				if (world.getBlockId(x2, y2, z2) != 0) continue;
-				if (world.rand.nextFloat() < 0.55F && ModBlocks.bamboo_shoot.canPlaceBlockAt(world, x2, y2, z2)) {
+				if (world.rand.nextFloat() < 0.5F && ModBlocks.bamboo_shoot.canPlaceBlockAt(world, x2, y2, z2)) {
 					flag = true;
 					world.setBlockWithNotify(x2, y2, z2, ModBlocks.bamboo_shoot.id);
 				}
