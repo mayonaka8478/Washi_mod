@@ -33,7 +33,7 @@ public class Bamboo extends Block
 			}
 			if (l < 32) {
 				int i1 = world.getBlockMetadata(x, y, z);
-				if (i1 == 23) {
+				if (i1 == 15) {
 					world.setBlockWithNotify(x, y + 1, z, this.id);
 					world.setBlockMetadataWithNotify(x, y, z, 0);
 				} else {
