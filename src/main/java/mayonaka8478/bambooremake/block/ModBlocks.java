@@ -3,7 +3,6 @@ package mayonaka8478.bambooremake.block;
 import mayonaka8478.bambooremake.BambooRemake;
 import mayonaka8478.bambooremake.IDUtils;
 import net.minecraft.client.render.block.model.BlockModelAxisAligned;
-import net.minecraft.client.render.block.model.BlockModelCropsWheat;
 import net.minecraft.client.render.block.model.BlockModelCrossedSquares;
 import net.minecraft.client.render.item.model.ItemModelStandard;
 import net.minecraft.core.block.Block;
@@ -48,7 +47,7 @@ public class ModBlocks {
 		.setResistance(3.0f)
 		.setHardness(0.0f)
 		.setBlockSound(BlockSounds.STONE)
-		.setBlockModel(block -> new BlockModelCropsWheat<>(block).withTextures("bambooremake:block/bamboo"))
+		.setBlockModel(block -> new BlockModelBamboo<>(block).withTextures("bambooremake:block/bamboo"))
 		.build(new Bamboo("bamboo", IDUtils.getCurrBlockId()));
 
 	public static void createBlocks() {
