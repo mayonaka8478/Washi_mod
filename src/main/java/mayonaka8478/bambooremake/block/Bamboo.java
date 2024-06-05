@@ -99,12 +99,36 @@ public class Bamboo extends Block
 	}
 
 	@Override
-	public boolean onBonemealUsed(ItemStack itemStack, EntityPlayer entityPlayer, World world, int i, int j, int k, Side side, double d, double e) {
-		//i=x j=y k=z
-		if (world.isAirBlock(i, j + 1, k)) {
-			world.setBlockWithNotify(i, j + 1, k, ModBlocks.bamboo.id);
-			return true;
+	public boolean onBonemealUsed(ItemStack itemStack, EntityPlayer entityPlayer, World world, int x, int y, int z, Side side, double d, double e) {
+		boolean flag = false;
+
+		int height = 0;
+		int lowerHeight = 0;
+		while (world.getBlockId(x, y + height, z) == this.id) {
+			++height;
 		}
-		return false;
+
+		while (world.getBlockId(x, y + lowerHeight, z) == this.id) {
+			--lowerHeight;
+		}
+		if (height < 32) {
+			//i=x j=y k=z
+			if (world.isAirBlock(x, y + height, z)) {
+				world.setBlockWithNotify(x, y + height, z, ModBlocks.bamboo.id);
+				flag = true;
+			}
+
+			for (int j1 = 0; j1 < 16; ++j1) {
+				int x2 = x + world.rand.nextInt(2) - world.rand.nextInt(2);
+				int y2 = y + lowerHeight + world.rand.nextInt(2) - world.rand.nextInt(5);
+				int z2 = z + world.rand.nextInt(2) - world.rand.nextInt(2);
+				if (world.getBlockId(x2, y2, z2) != 0) continue;
+				if (world.rand.nextFloat() < 0.5F && ModBlocks.bamboo_shoot.canPlaceBlockAt(world, x2, y2, z2)) {
+					flag = true;
+					world.setBlockWithNotify(x2, y2, z2, ModBlocks.bamboo_shoot.id);
+				}
+			}
+		}
+		return flag;
 	}
 }
