@@ -5,14 +5,31 @@ import net.minecraft.core.block.Block;
 import net.minecraft.core.block.entity.TileEntity;
 import net.minecraft.core.block.tag.BlockTags;
 import net.minecraft.core.enums.EnumDropCause;
+import net.minecraft.core.enums.LightLayer;
 import net.minecraft.core.item.ItemStack;
 import net.minecraft.core.util.phys.AABB;
 import net.minecraft.core.world.World;
 import net.minecraft.core.world.WorldSource;
 
+import java.util.Random;
+
 public class BambooShoot extends Block {
 	public BambooShoot(String key, int id) {
 		super(key, id, ModMaterial.bamboo_shoot);
+		this.setTicking(true);
+	}
+
+	@Override
+	public void updateTick(World world, int x, int y, int z, Random rand) {
+		if (world.getSavedLightValue(LightLayer.Block, x, y, z) >= 13) {
+
+			int i1 = world.getBlockMetadata(x, y, z);
+			if (i1 == 15) {
+				world.setBlockWithNotify(x, y, z, ModBlocks.bamboo.id);
+			} else {
+				world.setBlockMetadataWithNotify(x, y, z, i1 + 1);
+			}
+		}
 	}
 
 	@Override
@@ -68,4 +85,5 @@ public class BambooShoot extends Block {
 				return null;
 		}
 	}
+
 }

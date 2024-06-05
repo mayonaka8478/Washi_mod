@@ -4,15 +4,43 @@ import mayonaka8478.bambooremake.item.ModItems;
 import net.minecraft.core.block.Block;
 import net.minecraft.core.block.entity.TileEntity;
 import net.minecraft.core.block.material.Material;
+import net.minecraft.core.block.tag.BlockTags;
+import net.minecraft.core.entity.player.EntityPlayer;
 import net.minecraft.core.enums.EnumDropCause;
+import net.minecraft.core.enums.LightLayer;
+import net.minecraft.core.item.IBonemealable;
 import net.minecraft.core.item.ItemStack;
+import net.minecraft.core.util.helper.Side;
 import net.minecraft.core.util.phys.AABB;
 import net.minecraft.core.world.World;
 import net.minecraft.core.world.WorldSource;
 
-public class Bamboo extends Block {
+import java.util.Random;
+
+public class Bamboo extends Block
+	implements IBonemealable {
 	public Bamboo(String key, int id) {
 		super(key, id, Material.vegetable);
+		this.setTicking(true);
+	}
+
+	@Override
+	public void updateTick(World world, int x, int y, int z, Random rand) {
+		if (world.isAirBlock(x, y + 1, z) && world.getSavedLightValue(LightLayer.Block, x, y + 1, z) >= 1) {
+			int l = 1;
+			while (world.getBlockId(x, y - l, z) == this.id) {
+				++l;
+			}
+			if (l < 32) {
+				int i1 = world.getBlockMetadata(x, y, z);
+				if (i1 == 23) {
+					world.setBlockWithNotify(x, y + 1, z, this.id);
+					world.setBlockMetadataWithNotify(x, y, z, 0);
+				} else {
+					world.setBlockMetadataWithNotify(x, y, z, i1 + 1);
+				}
+			}
+		}
 	}
 
 	@Override
@@ -38,6 +66,23 @@ public class Bamboo extends Block {
 	}
 
 	@Override
+	public boolean canBlockStay(World world, int x, int y, int z) {
+		return (world.canBlockSeeTheSky(x, y, z)) && this.canThisPlantGrowOnThisBlockID(world.getBlockId(x, y - 1, z));
+	}
+
+	@Override
+	public boolean canPlaceBlockAt(World world, int x, int y, int z) {
+		return super.canPlaceBlockAt(world, x, y, z) && this.canThisPlantGrowOnThisBlockID(world.getBlockId(x, y - 1, z));
+	}
+
+	protected boolean canThisPlantGrowOnThisBlockID(int i) {
+		if (Block.blocksList[i] == null) {
+			return false;
+		}
+		return Block.blocksList[i].hasTag(BlockTags.GROWS_FLOWERS) || Block.blocksList[i] == this;
+	}
+
+	@Override
 	public boolean renderAsNormalBlock() {
 		return false;
 	}
@@ -51,5 +96,15 @@ public class Bamboo extends Block {
 			default:
 				return new ItemStack[]{new ItemStack(ModItems.bamboo, 4)};
 		}
+	}
+
+	@Override
+	public boolean onBonemealUsed(ItemStack itemStack, EntityPlayer entityPlayer, World world, int i, int j, int k, Side side, double d, double e) {
+		//i=x j=y k=z
+		if (world.isAirBlock(i, j + 1, k)) {
+			world.setBlockWithNotify(i, j + 1, k, ModBlocks.bamboo.id);
+			return true;
+		}
+		return false;
 	}
 }
