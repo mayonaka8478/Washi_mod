@@ -49,6 +49,13 @@ public class ModBlocks {
 		.setBlockSound(BlockSounds.STONE)
 		.setBlockModel(block -> new BlockModelBamboo<>(block).withTextures("bambooremake:block/bamboo"))
 		.build(new Bamboo("bamboo", IDUtils.getCurrBlockId()));
+	//bamboo_cut
+	public static final Block bamboo_cut = new BlockBuilder(BambooRemake.MOD_ID)
+		.setResistance(3.0f)
+		.setHardness(0.0f)
+		.setBlockSound(BlockSounds.STONE)
+		.setBlockModel(block -> new BlockModelBamboo<>(block).withTextures("bambooremake:block/bamboo"))
+		.build(new BambooCut("bamboo_cut", IDUtils.getCurrBlockId()));
 
 	public static void createBlocks() {
 	}

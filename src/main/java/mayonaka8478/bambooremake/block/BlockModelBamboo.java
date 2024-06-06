@@ -83,4 +83,3 @@ public class BlockModelBamboo<T extends Block>
 	}
 
 }
-

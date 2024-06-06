@@ -6,5 +6,7 @@ tile.bambooremake.bamboo_shoot.name=Bamboo Shoot
 tile.bambooremake.bamboo_shoot.desc=
 tile.bambooremake.bamboo.name=Bamboo
 tile.bambooremake.bamboo.desc=
+tile.bambooremake.bamboo_cut.name=Cut Bamboo
+tile.bambooremake.bamboo_cut.desc=
 item.bambooremake.bamboo.name=Bamboo
 item.bambooremake.bamboo.desc=

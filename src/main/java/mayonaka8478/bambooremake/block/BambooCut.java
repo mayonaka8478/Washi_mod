@@ -5,42 +5,15 @@ import net.minecraft.core.block.Block;
 import net.minecraft.core.block.entity.TileEntity;
 import net.minecraft.core.block.material.Material;
 import net.minecraft.core.block.tag.BlockTags;
-import net.minecraft.core.entity.player.EntityPlayer;
 import net.minecraft.core.enums.EnumDropCause;
-import net.minecraft.core.enums.LightLayer;
-import net.minecraft.core.item.IBonemealable;
 import net.minecraft.core.item.ItemStack;
-import net.minecraft.core.util.helper.Side;
 import net.minecraft.core.util.phys.AABB;
 import net.minecraft.core.world.World;
 import net.minecraft.core.world.WorldSource;
 
-import java.util.Random;
-
-public class Bamboo extends Block
-	implements IBonemealable {
-	public Bamboo(String key, int id) {
+public class BambooCut extends Block {
+	public BambooCut(String key, int id) {
 		super(key, id, Material.vegetable);
-		this.setTicking(true);
-	}
-
-	@Override
-	public void updateTick(World world, int x, int y, int z, Random rand) {
-		if (world.isAirBlock(x, y + 1, z) && world.getSavedLightValue(LightLayer.Block, x, y + 1, z) >= 1) {
-			int l = 1;
-			while (world.getBlockId(x, y - l, z) == this.id) {
-				++l;
-			}
-			if (l < 32) {
-				int i1 = world.getBlockMetadata(x, y, z);
-				if (i1 == 15) {
-					world.setBlockWithNotify(x, y + 1, z, this.id);
-					world.setBlockMetadataWithNotify(x, y, z, 0);
-				} else {
-					world.setBlockMetadataWithNotify(x, y, z, i1 + 1);
-				}
-			}
-		}
 	}
 
 	@Override
@@ -92,43 +65,9 @@ public class Bamboo extends Block
 		switch (dropCause) {
 			case SILK_TOUCH:
 			case PICK_BLOCK:
-				return new ItemStack[]{new ItemStack(ModBlocks.bamboo_cut)};
+				return new ItemStack[]{new ItemStack(this)};
 			default:
 				return new ItemStack[]{new ItemStack(ModItems.bamboo, 4)};
 		}
-	}
-
-	@Override
-	public boolean onBonemealUsed(ItemStack itemStack, EntityPlayer entityPlayer, World world, int x, int y, int z, Side side, double d, double e) {
-		boolean flag = false;
-
-		int height = 0;
-		int lowerHeight = 0;
-		while (world.getBlockId(x, y + height, z) == this.id) {
-			++height;
-		}
-
-		while (world.getBlockId(x, y + lowerHeight, z) == this.id) {
-			--lowerHeight;
-		}
-		if (height < 32) {
-			//i=x j=y k=z
-			if (world.isAirBlock(x, y + height, z)) {
-				world.setBlockWithNotify(x, y + height, z, ModBlocks.bamboo.id);
-				flag = true;
-			}
-
-			for (int j1 = 0; j1 < 16; ++j1) {
-				int x2 = x + world.rand.nextInt(2) - world.rand.nextInt(2);
-				int y2 = y + lowerHeight + world.rand.nextInt(2) - world.rand.nextInt(5);
-				int z2 = z + world.rand.nextInt(2) - world.rand.nextInt(2);
-				if (world.getBlockId(x2, y2, z2) != 0) continue;
-				if (world.rand.nextFloat() < 0.5F && ModBlocks.bamboo_shoot.canPlaceBlockAt(world, x2, y2, z2)) {
-					flag = true;
-					world.setBlockWithNotify(x2, y2, z2, ModBlocks.bamboo_shoot.id);
-				}
-			}
-		}
-		return flag;
 	}
 }

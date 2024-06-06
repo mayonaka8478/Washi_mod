@@ -6,5 +6,7 @@ tile.bambooremake.bamboo_shoot.name=筍
 tile.bambooremake.bamboo_shoot.desc=
 tile.bambooremake.bamboo.name=竹
 tile.bambooremake.bamboo.desc=
+tile.bambooremake.bamboo_cut.name=丸竹
+tile.bambooremake.bamboo_cut.desc=
 item.bambooremake.bamboo.name=竹
 item.bambooremake.bamboo.desc=
