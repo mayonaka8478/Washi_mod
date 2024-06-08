@@ -54,7 +54,7 @@ public class ModBlocks {
 		.setResistance(3.0f)
 		.setHardness(0.0f)
 		.setBlockSound(BlockSounds.STONE)
-		.setBlockModel(block -> new BlockModelBamboo<>(block).withTextures("bambooremake:block/bamboo"))
+		.setBlockModel(block -> new BlockModelBambooCut<>(block).withTextures("bambooremake:block/bamboo"))
 		.build(new BambooCut("bamboo_cut", IDUtils.getCurrBlockId()));
 
 	public static void createBlocks() {
