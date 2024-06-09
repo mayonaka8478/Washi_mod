@@ -51,7 +51,6 @@ public class ModBlocks {
 		.setBlockModel(block -> new BlockModelBamboo<>(block).withTextures("bambooremake:block/bamboo"))
 		.build(new Bamboo("bamboo", IDUtils.getCurrBlockId()));
 	//bamboo_cut
-	private static Block BambooCut;
 	public static final Block bamboo_cut = new BlockBuilder(BambooRemake.MOD_ID)
 		.setResistance(3.0f)
 		.setHardness(0.0f)
@@ -59,10 +58,10 @@ public class ModBlocks {
 		.setIcon("bambooremake:block/bamboo")
 		.setBlockModel(block -> new DFBlockModelBuilder(BambooRemake.MOD_ID)
 			.setBlockModel("block/bamboo_cut.json")
-			.setBlockState(BambooRemake.MOD_ID, "bamboo_cut.json")
+			.setBlockState("bamboo_cut.json")
 			.setMetaStateInterpreter(new BambooCutMetaStateInterpreter())
 			.setRender3D(false)
-			.build(BambooCut))
+			.build(block))
 		.build(new BambooCut("bamboo_cut", IDUtils.getCurrBlockId()));
 
 	public static void createBlocks() {
