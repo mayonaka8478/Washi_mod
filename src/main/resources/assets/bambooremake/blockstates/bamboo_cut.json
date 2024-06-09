@@ -1,7 +1,7 @@
 {
   "variants": {
     "axis=x": {
-      "model": "bambooremake:block/bamboo_cut",
+      "model": "bambooremake:block/bamboo_cut_axis",
       "x": 90,
       "y": 90
     },
@@ -9,7 +9,7 @@
       "model": "bambooremake:block/bamboo_cut"
     },
     "axis=z": {
-      "model": "bambooremake:block/bamboo_cut",
+      "model": "bambooremake:block/bamboo_cut_axis",
       "x": 90
     }
   }
