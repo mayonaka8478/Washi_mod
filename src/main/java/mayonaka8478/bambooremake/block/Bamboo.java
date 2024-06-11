@@ -22,6 +22,8 @@ public class Bamboo extends Block
 	public Bamboo(String key, int id) {
 		super(key, id, Material.vegetable);
 		this.setTicking(true);
+		float f = 0.375f;
+		this.setBlockBounds(0.5f - f, 0.0, 0.5f - f, 0.5f + f, 1.0, 0.5f + f);
 	}
 
 	@Override
@@ -128,6 +130,10 @@ public class Bamboo extends Block
 					world.setBlockWithNotify(x2, y2, z2, ModBlocks.bamboo_shoot.id);
 				}
 			}
+		}
+		//骨粉消費するやつ
+		if (entityPlayer.getGamemode().consumeBlocks()) {
+			--itemStack.stackSize;
 		}
 		return flag;
 	}

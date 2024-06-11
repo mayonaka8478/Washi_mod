@@ -17,6 +17,8 @@ public class BambooShoot extends Block {
 	public BambooShoot(String key, int id) {
 		super(key, id, ModMaterial.bamboo_shoot);
 		this.setTicking(true);
+		float f = 0.2f;
+		this.setBlockBounds(0.5f - f, 0.0, 0.5f - f, 0.5f + f, f * 3.0f, 0.5f + f);
 	}
 
 	@Override
