@@ -13,7 +13,7 @@ import net.minecraft.core.world.WorldSource;
 
 public class BambooCut extends BlockAxisAligned {
 	public BambooCut(String key, int id) {
-		super(key, id, Material.decoration);
+		super(key, id, Material.vegetable);
 	}
 
 	public void setBlockBoundsBasedOnState(World world, int x, int y, int z) {

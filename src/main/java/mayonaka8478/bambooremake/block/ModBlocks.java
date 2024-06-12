@@ -7,6 +7,7 @@ import net.minecraft.client.render.block.model.BlockModelCrossedSquares;
 import net.minecraft.client.render.item.model.ItemModelStandard;
 import net.minecraft.core.block.Block;
 import net.minecraft.core.block.BlockAxisAligned;
+import net.minecraft.core.block.BlockStairs;
 import net.minecraft.core.block.material.Material;
 import net.minecraft.core.block.tag.BlockTags;
 import net.minecraft.core.sound.BlockSounds;
@@ -23,6 +24,20 @@ public class ModBlocks {
 			return new BlockModelAxisAligned<>(block).withTextures("bambooremake:block/tatami_top", "bambooremake:block/tatami");
 		})
 		.build(new BlockAxisAligned("tatami", IDUtils.getCurrBlockId(), Material.grass));
+	//stairs_tatami
+	public static final Block tatami_stairs = new BlockBuilder(BambooRemake.MOD_ID)
+		.setResistance(5.0f)
+		.setHardness(0.1f)
+		.setUseInternalLight()
+		.setVisualUpdateOnMetadata()
+		.setBlockSound(BlockSounds.GRASS)
+		.setBlockModel(block -> new DFBlockModelBuilder(BambooRemake.MOD_ID)
+			.setBlockModel("block/stairs_tatami.json")
+			.setBlockState("stairs_tatami.json")
+			.setMetaStateInterpreter(new StairsTatamiMetaStateInterpreter())
+			.setRender3D(true)
+			.build(block))
+		.build(new BlockStairs(tatami, IDUtils.getCurrBlockId()));
 	//bamboo_works
 	public static final Block bamboo_works = new BlockBuilder(BambooRemake.MOD_ID)
 		.setResistance(3.0f)
