@@ -22,7 +22,7 @@ public class ModBlocks {
 		.setBlockModel(block -> {
 			return new BlockModelAxisAligned<>(block).withTextures("bambooremake:block/tatami_top", "bambooremake:block/tatami");
 		})
-		.build(new BlockAxisAligned("tatami", IDUtils.getCurrBlockId(), Material.decoration));
+		.build(new BlockAxisAligned("tatami", IDUtils.getCurrBlockId(), Material.grass));
 	//bamboo_works
 	public static final Block bamboo_works = new BlockBuilder(BambooRemake.MOD_ID)
 		.setResistance(3.0f)
@@ -31,7 +31,7 @@ public class ModBlocks {
 		.setFlammability(5, 20)
 		.setTags(BlockTags.MINEABLE_BY_AXE, BlockTags.FENCES_CONNECT)
 		.setTextures("bambooremake:block/bamboo_works")
-		.build(new BlockAxisAligned("bamboo_works", IDUtils.getCurrBlockId(), Material.decoration));
+		.build(new Block("bamboo_works", IDUtils.getCurrBlockId(), Material.wood));
 	//bamboo_shoot
 	public static final Block bamboo_shoot = new BlockBuilder(BambooRemake.MOD_ID)
 		.setResistance(3.0f)
