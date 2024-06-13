@@ -1,10 +1,15 @@
 tile.bambooremake.tatami.name=畳
 tile.bambooremake.tatami.desc=
+tile.bambooremake.slab.tatami.name=畳の半ブロック
+tile.bambooremake.slab.tatami.desc=
 tile.bambooremake.stairs.tatami.name=畳の階段
 tile.bambooremake.stairs.tatami.desc=
-tile.bambooremake.tatami.desc=
 tile.bambooremake.bamboo_works.name=竹細工
 tile.bambooremake.bamboo_works.desc=竹を細く切って編んだもの、様々なアイテムの材料になる
+tile.bambooremake.slab.bamboo_works.name=竹細工の半ブロック
+tile.bambooremake.slab.bamboo_works.desc=
+tile.bambooremake.stairs.bamboo_works.name=竹細工の階段
+tile.bambooremake.stairs.bamboo_works.desc=
 tile.bambooremake.bamboo_shoot.name=筍
 tile.bambooremake.bamboo_shoot.desc=日光以外の光源がすぐ近くにあると竹に成長する
 tile.bambooremake.bamboo.name=竹
