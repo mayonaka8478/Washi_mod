@@ -28,19 +28,19 @@ public class ModBlocks {
 		})
 		.build(new BlockAxisAligned("tatami", IDUtils.getCurrBlockId(), Material.grass));
 	//slab_tatami
-	//public static final Block slab_tatami = new BlockBuilder(BambooRemake.MOD_ID)
-	//.setResistance(5.0f)
-	//.setHardness(0.1f)
-	//.setUseInternalLight()
-	//.setVisualUpdateOnMetadata()
-	//.setBlockSound(BlockSounds.GRASS)
-	//.setBlockModel(block -> new DFBlockModelBuilder(BambooRemake.MOD_ID)
-	//.setBlockModel("block/slab_tatami.json")
-	//.setBlockState("slab_tatami.json")
-	//.setMetaStateInterpreter(new SlabTatamiMetaStateInterpreter())
-	//.setRender3D(true)
-	//.build(block))
-	//.build(new SlabTatami("slab_tatami", IDUtils.getCurrBlockId()));
+	public static final Block slab_tatami = new BlockBuilder(BambooRemake.MOD_ID)
+		.setResistance(5.0f)
+		.setHardness(0.1f)
+		.setUseInternalLight()
+		.setVisualUpdateOnMetadata()
+		.setBlockSound(BlockSounds.GRASS)
+		.setBlockModel(block -> new DFBlockModelBuilder(BambooRemake.MOD_ID)
+			.setBlockModel("block/slab_tatami.json")
+			.setBlockState("slab_tatami.json")
+			.setMetaStateInterpreter(new SlabTatamiMetaStateInterpreter())
+			.setRender3D(true)
+			.build(block))
+		.build(new SlabTatami("slab_tatami", IDUtils.getCurrBlockId()));
 	//stairs_tatami
 	public static final Block tatami_stairs = new BlockBuilder(BambooRemake.MOD_ID)
 		.setResistance(5.0f)
