@@ -6,7 +6,6 @@ import net.minecraft.client.render.block.model.BlockModelAxisAligned;
 import net.minecraft.client.render.block.model.BlockModelCrossedSquares;
 import net.minecraft.client.render.block.model.BlockModelSlab;
 import net.minecraft.client.render.block.model.BlockModelStairs;
-import net.minecraft.client.render.item.model.ItemModelStandard;
 import net.minecraft.core.block.Block;
 import net.minecraft.core.block.BlockAxisAligned;
 import net.minecraft.core.block.BlockSlab;
@@ -98,9 +97,7 @@ public class ModBlocks {
 		.setBlockSound(BlockSounds.STONE)
 		.setBlockModel(block -> new BlockModelCrossedSquares<>(block).withTextures("bambooremake:block/bamboo_shoot"))
 		.setTags(BlockTags.MINEABLE_BY_HOE)
-		.setItemModel(item -> {
-			return new ItemModelStandard(item, BambooRemake.MOD_ID);
-		})
+		.setIcon("bambooremake:item/bamboo_shoot")
 		.build(new BambooShoot("bamboo_shoot", IDUtils.getCurrBlockId()));
 	//bamboo
 	public static final Block bamboo = new BlockBuilder(BambooRemake.MOD_ID)
