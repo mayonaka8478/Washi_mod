@@ -13,6 +13,7 @@ import net.minecraft.core.block.BlockSlab;
 import net.minecraft.core.block.BlockStairs;
 import net.minecraft.core.block.material.Material;
 import net.minecraft.core.block.tag.BlockTags;
+import net.minecraft.core.item.block.ItemBlockSlab;
 import net.minecraft.core.sound.BlockSounds;
 import org.useless.dragonfly.model.block.DFBlockModelBuilder;
 import turniplabs.halplibe.helper.BlockBuilder;
@@ -34,13 +35,14 @@ public class ModBlocks {
 		.setUseInternalLight()
 		.setVisualUpdateOnMetadata()
 		.setBlockSound(BlockSounds.GRASS)
+		.setItemBlock(ItemBlockSlab::new)
 		.setBlockModel(block -> new DFBlockModelBuilder(BambooRemake.MOD_ID)
 			.setBlockModel("block/slab_tatami.json")
 			.setBlockState("slab_tatami.json")
 			.setMetaStateInterpreter(new SlabTatamiMetaStateInterpreter())
 			.setRender3D(true)
 			.build(block))
-		.build(new SlabTatami("slab_tatami", IDUtils.getCurrBlockId()));
+		.build(new SlabTatami(tatami, IDUtils.getCurrBlockId()));
 	//stairs_tatami
 	public static final Block tatami_stairs = new BlockBuilder(BambooRemake.MOD_ID)
 		.setResistance(5.0f)
@@ -70,6 +72,7 @@ public class ModBlocks {
 		.setHardness(2.0f)
 		.setUseInternalLight()
 		.setVisualUpdateOnMetadata()
+		.setItemBlock(ItemBlockSlab::new)
 		.setBlockModel(BlockModelSlab::new)
 		.setBlockSound(BlockSounds.WOOD)
 		.setFlammability(5, 20)
