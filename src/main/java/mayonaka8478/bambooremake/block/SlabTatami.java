@@ -3,7 +3,6 @@ package mayonaka8478.bambooremake.block;
 import net.minecraft.core.block.Block;
 import net.minecraft.core.block.BlockSlab;
 import net.minecraft.core.entity.EntityLiving;
-import net.minecraft.core.enums.PlacementMode;
 import net.minecraft.core.util.helper.Axis;
 import net.minecraft.core.util.helper.Direction;
 import net.minecraft.core.util.helper.Side;
@@ -16,7 +15,7 @@ public class SlabTatami extends BlockSlab {
 
 	@Override
 	public void onBlockPlaced(World world, int x, int y, int z, Side side, EntityLiving entity, double sideHeight) {
-		Axis axis = entity.getPlacementDirection(side, PlacementMode.FACING).getAxis();
+		Axis axis = entity.getHorizontalPlacementDirection(side).getAxis();
 		Direction dir = entity.getVerticalPlacementDirection(side, sideHeight);
 		int meta = world.getBlockMetadata(x, y, z) & 6;
 		if (dir == Direction.DOWN) {
