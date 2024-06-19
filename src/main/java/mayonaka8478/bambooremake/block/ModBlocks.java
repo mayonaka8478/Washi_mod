@@ -2,6 +2,7 @@ package mayonaka8478.bambooremake.block;
 
 import mayonaka8478.bambooremake.BambooRemake;
 import mayonaka8478.bambooremake.IDUtils;
+import mayonaka8478.bambooremake.item.ItemBlockSlabTatami;
 import net.minecraft.client.render.block.model.BlockModelAxisAligned;
 import net.minecraft.client.render.block.model.BlockModelCrossedSquares;
 import net.minecraft.client.render.block.model.BlockModelSlab;
@@ -34,7 +35,7 @@ public class ModBlocks {
 		.setUseInternalLight()
 		.setVisualUpdateOnMetadata()
 		.setBlockSound(BlockSounds.GRASS)
-		.setItemBlock(ItemBlockSlab::new)
+		.setItemBlock(ItemBlockSlabTatami::new)
 		.setBlockModel(block -> new DFBlockModelBuilder(BambooRemake.MOD_ID)
 			.setBlockModel("block/slab_tatami.json")
 			.setBlockState("slab_tatami.json")
