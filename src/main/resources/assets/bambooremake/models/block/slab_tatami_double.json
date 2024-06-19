@@ -1,6 +1,8 @@
 {
+  "credit": "Made with Blockbench",
   "textures": {
-    "all": "bambooremake:block/tatami_center"
+    "0": "bambooremake:block/tatami_center",
+    "particle": "bambooremake:block/tatami_center"
   },
   "elements": [
     {
@@ -22,7 +24,8 @@
             16,
             16
           ],
-          "texture": "#all"
+          "texture": "#0",
+          "cullface": "north"
         },
         "east": {
           "uv": [
@@ -31,7 +34,8 @@
             16,
             16
           ],
-          "texture": "#all"
+          "texture": "#0",
+          "cullface": "east"
         },
         "south": {
           "uv": [
@@ -40,7 +44,8 @@
             16,
             16
           ],
-          "texture": "#all"
+          "texture": "#0",
+          "cullface": "south"
         },
         "west": {
           "uv": [
@@ -49,7 +54,8 @@
             16,
             16
           ],
-          "texture": "#all"
+          "texture": "#0",
+          "cullface": "west"
         },
         "up": {
           "uv": [
@@ -58,7 +64,8 @@
             16,
             16
           ],
-          "texture": "#all"
+          "texture": "#0",
+          "cullface": "up"
         },
         "down": {
           "uv": [
@@ -67,7 +74,8 @@
             16,
             16
           ],
-          "texture": "#all"
+          "texture": "#0",
+          "cullface": "down"
         }
       }
     }
