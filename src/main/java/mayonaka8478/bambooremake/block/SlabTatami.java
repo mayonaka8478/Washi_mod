@@ -17,15 +17,12 @@ public class SlabTatami extends BlockSlab {
 	public void onBlockPlaced(World world, int x, int y, int z, Side side, EntityLiving entity, double sideHeight) {
 		Axis axis = entity.getHorizontalPlacementDirection(side).getAxis();
 		Direction dir = entity.getVerticalPlacementDirection(side, sideHeight);
-		int meta = world.getBlockMetadata(x, y, z) & 6;
-		if (dir == Direction.DOWN) {
-			meta = 0;
-		}
+		int meta = 0;
 		if (dir == Direction.UP) {
-			meta = 2;
+			meta = 0b10;
 		}
 		if (axis == Axis.Z) {
-			meta += 3;
+			meta |= 0b100;
 		}
 		world.setBlockMetadataWithNotify(x, y, z, meta);
 	}

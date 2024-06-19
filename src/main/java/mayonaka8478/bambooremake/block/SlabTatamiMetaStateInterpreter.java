@@ -10,10 +10,10 @@ public class SlabTatamiMetaStateInterpreter extends MetaStateInterpreter {
 
 	@Override
 	public HashMap<String, String> getStateMap(WorldSource worldSource, int x, int y, int z, Block block, int meta) {
-		int hRotation = meta & 2;
-		int vRotation = meta & 5;
+		int hRotation = meta & 0b11;
+		int vRotation = meta & 0b100;
 		HashMap<String, String> result = new HashMap<>();
-		result.put("half", new String[]{"bottom", "double", "top"}[hRotation]);
+		result.put("half", new String[]{"bottom", "double", "top", "double"}[hRotation]);
 		result.put("facing", vRotation == 0 ? "x" : "z");
 		return result;
 	}
