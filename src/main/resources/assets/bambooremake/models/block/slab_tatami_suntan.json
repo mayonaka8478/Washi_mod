@@ -2,9 +2,9 @@
   "credit": "Made with Blockbench",
   "ambientocclusion": false,
   "textures": {
-    "particle": "bambooremake:block/slab_tatami_side",
-    "side": "bambooremake:block/slab_tatami_side",
-    "top": "bambooremake:block/tatami"
+    "particle": "bambooremake:block/slab_tatami_suntan_side",
+    "side": "bambooremake:block/slab_tatami_suntan_side",
+    "top": "bambooremake:block/tatami_suntan"
   },
   "elements": [
     {

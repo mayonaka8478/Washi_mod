@@ -1,5 +1,6 @@
 {
   "credit": "Made with Blockbench",
+  "ambientocclusion": false,
   "textures": {
     "0": "bambooremake:block/tatami_center",
     "particle": "bambooremake:block/tatami_center"

@@ -1,0 +1,31 @@
+{
+  "variants": {
+    "facing=z,half=bottom": {
+      "model": "bambooremake:block/slab_tatami_suntan",
+      "uvlock": true
+    },
+    "facing=z,half=double": {
+      "model": "bambooremake:block/slab_tatami_suntan_double",
+      "uvlock": true
+    },
+    "facing=z,half=top": {
+      "model": "bambooremake:block/slab_tatami_suntan_top",
+      "uvlock": true
+    },
+    "facing=x,half=bottom": {
+      "model": "bambooremake:block/slab_tatami_suntan",
+      "uvlock": true,
+      "y": 90
+    },
+    "facing=x,half=double": {
+      "model": "bambooremake:block/slab_tatami_suntan_double",
+      "uvlock": true,
+      "y": 90
+    },
+    "facing=x,half=top": {
+      "model": "bambooremake:block/slab_tatami_suntan_top",
+      "uvlock": true,
+      "y": 90
+    }
+  }
+}

@@ -15,10 +15,15 @@ import net.minecraft.core.block.material.Material;
 import net.minecraft.core.block.tag.BlockTags;
 import net.minecraft.core.item.block.ItemBlockSlab;
 import net.minecraft.core.sound.BlockSounds;
+import net.minecraft.core.world.Dimension;
+import net.minecraft.core.world.World;
 import org.useless.dragonfly.model.block.DFBlockModelBuilder;
 import turniplabs.halplibe.helper.BlockBuilder;
 
+import java.util.Random;
+
 public class ModBlocks {
+
 	//tatami
 	public static final Block tatami = new BlockBuilder(BambooRemake.MOD_ID)
 		.setResistance(5.0f)
@@ -27,7 +32,16 @@ public class ModBlocks {
 		.setBlockModel(block -> {
 			return new BlockModelAxisAligned<>(block).withTextures("bambooremake:block/tatami_top", "bambooremake:block/tatami");
 		})
-		.build(new BlockAxisAligned("tatami", IDUtils.getCurrBlockId(), Material.grass));
+		.setTicking(true)
+		.build(new BlockAxisAligned("tatami", IDUtils.getCurrBlockId(), Material.grass) {
+			public void updateTick(World world, int x, int y, int z, Random rand) {
+				if (rand.nextInt(5) == 0) {
+					if (world.dimension == Dimension.nether) {
+						world.setBlockAndMetadataWithNotify(x, y, z, ModBlocks.tatami_suntan.id, world.getBlockMetadata(x, y, z));
+					}
+				}
+			}
+		});
 	//slab_tatami
 	public static final Block slab_tatami = new BlockBuilder(BambooRemake.MOD_ID)
 		.setResistance(5.0f)
@@ -42,9 +56,18 @@ public class ModBlocks {
 			.setMetaStateInterpreter(new SlabTatamiMetaStateInterpreter())
 			.setRender3D(true)
 			.build(block))
-		.build(new SlabTatami(tatami, IDUtils.getCurrBlockId()));
+		.setTicking(true)
+		.build(new SlabTatami(tatami, IDUtils.getCurrBlockId()) {
+			public void updateTick(World world, int x, int y, int z, Random rand) {
+				if (rand.nextInt(5) == 0) {
+					if (world.dimension == Dimension.nether) {
+						world.setBlockAndMetadataWithNotify(x, y, z, ModBlocks.slab_tatami_suntan.id, world.getBlockMetadata(x, y, z));
+					}
+				}
+			}
+		});
 	//stairs_tatami
-	public static final Block tatami_stairs = new BlockBuilder(BambooRemake.MOD_ID)
+	public static final Block stairs_tatami = new BlockBuilder(BambooRemake.MOD_ID)
 		.setResistance(5.0f)
 		.setHardness(0.1f)
 		.setUseInternalLight()
@@ -56,7 +79,54 @@ public class ModBlocks {
 			.setMetaStateInterpreter(new StairsTatamiMetaStateInterpreter())
 			.setRender3D(true)
 			.build(block))
-		.build(new BlockStairs(tatami, IDUtils.getCurrBlockId()));
+		.setTicking(true)
+		.build(new BlockStairs(tatami, IDUtils.getCurrBlockId()) {
+			public void updateTick(World world, int x, int y, int z, Random rand) {
+				if (rand.nextInt(5) == 0) {
+					if (world.dimension == Dimension.nether) {
+						world.setBlockAndMetadataWithNotify(x, y, z, ModBlocks.stairs_tatami_suntan.id, world.getBlockMetadata(x, y, z));
+					}
+				}
+			}
+		});
+	//tatami_suntan
+	public static final Block tatami_suntan = new BlockBuilder(BambooRemake.MOD_ID)
+		.setResistance(5.0f)
+		.setHardness(0.1f)
+		.setBlockSound(BlockSounds.GRASS)
+		.setBlockModel(block -> {
+			return new BlockModelAxisAligned<>(block).withTextures("bambooremake:block/tatami_suntan_top", "bambooremake:block/tatami_suntan");
+		})
+		.build(new BlockAxisAligned("tatami_suntan", IDUtils.getCurrBlockId(), Material.grass));
+	//slab_tatami_suntan
+	public static final Block slab_tatami_suntan = new BlockBuilder(BambooRemake.MOD_ID)
+		.setResistance(5.0f)
+		.setHardness(0.1f)
+		.setUseInternalLight()
+		.setVisualUpdateOnMetadata()
+		.setBlockSound(BlockSounds.GRASS)
+		.setItemBlock(ItemBlockSlabTatami::new)
+		.setBlockModel(block -> new DFBlockModelBuilder(BambooRemake.MOD_ID)
+			.setBlockModel("block/slab_tatami_suntan.json")
+			.setBlockState("slab_tatami_suntan.json")
+			.setMetaStateInterpreter(new SlabTatamiMetaStateInterpreter())
+			.setRender3D(true)
+			.build(block))
+		.build(new SlabTatami(tatami_suntan, IDUtils.getCurrBlockId()));
+	//stairs_tatami_suntan
+	public static final Block stairs_tatami_suntan = new BlockBuilder(BambooRemake.MOD_ID)
+		.setResistance(5.0f)
+		.setHardness(0.1f)
+		.setUseInternalLight()
+		.setVisualUpdateOnMetadata()
+		.setBlockSound(BlockSounds.GRASS)
+		.setBlockModel(block -> new DFBlockModelBuilder(BambooRemake.MOD_ID)
+			.setBlockModel("block/stairs_tatami_suntan.json")
+			.setBlockState("stairs_tatami_suntan.json")
+			.setMetaStateInterpreter(new StairsTatamiMetaStateInterpreter())
+			.setRender3D(true)
+			.build(block))
+		.build(new BlockStairs(tatami_suntan, IDUtils.getCurrBlockId()));
 	//bamboo_works
 	public static final Block bamboo_works = new BlockBuilder(BambooRemake.MOD_ID)
 		.setResistance(3.0f)
