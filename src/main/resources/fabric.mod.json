@@ -27,10 +27,13 @@
 			"mayonaka8478.bambooremake.BambooRemake"
 		],
 		"recipesReady": [
-			"mayonaka8478.bambooremake.BambooRemake"
+			"mayonaka8478.bambooremake.ModRecipe"
 		],
 		"client": [
 			"mayonaka8478.bambooremake.BambooRemakeClient"
+		],
+		"terrain-api": [
+			"mayonaka8478.bambooremake.TerrainAPIPlugin"
 		]
 	},
   "mixins": [

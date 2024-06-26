@@ -190,7 +190,6 @@ public class ModBlocks {
 			.setRender3D(false)
 			.build(block))
 		.build(new BambooCut("bamboo_cut", IDUtils.getCurrBlockId()));
-
 	public static void createBlocks() {
 	}
 }
