@@ -15,7 +15,7 @@ public class ItemBlockSlabTatami extends ItemBlock {
 		super(block);
 	}
 	@Override
-	public boolean onItemUse(ItemStack itemstack, EntityPlayer entityplayer, World world, int blockX, int blockY, int blockZ, Side side, double xPlaced, double yPlaced) {
+	public boolean onUseItemOnBlock(ItemStack stack, EntityPlayer player, World world, int blockX, int blockY, int blockZ, Side side, double xPlaced, double yPlaced) {
 		int id = world.getBlockId(blockX, blockY, blockZ);
 		byte rotateBit = (byte) (world.getBlockMetadata(blockX, blockY, blockZ) & 0b100);
 		int meta = world.getBlockMetadata(blockX, blockY, blockZ) & 0b11;
@@ -23,7 +23,7 @@ public class ItemBlockSlabTatami extends ItemBlock {
 			id = 0;
 			meta = 0;
 		}
-		if (itemstack.stackSize <= 0) {
+		if (stack.stackSize <= 0) {
 			return false;
 		}
 		if (blockY == world.getHeightBlocks() - 1 && Block.blocksList[this.blockID].blockMaterial.isSolid()) {
@@ -36,8 +36,8 @@ public class ItemBlockSlabTatami extends ItemBlock {
 			}
 			Block blockSlab = Block.blocksList[this.blockID];
 			world.setBlockMetadataWithNotify(blockX, blockY, blockZ, 0b1 | rotateBit);
-			world.playBlockSoundEffect(entityplayer, (float)blockX + 0.5f, (float)blockY + 0.5f, (float)blockZ + 0.5f, blockSlab, EnumBlockSoundEffectType.PLACE);
-			itemstack.consumeItem(entityplayer);
+			world.playBlockSoundEffect(player, (float) blockX + 0.5f, (float) blockY + 0.5f, (float) blockZ + 0.5f, blockSlab, EnumBlockSoundEffectType.PLACE);
+			stack.consumeItem(player);
 			return true;
 		}
 		if (id != 0) {
@@ -51,16 +51,16 @@ public class ItemBlockSlabTatami extends ItemBlock {
 			}
 			Block blockSlab = Block.blocksList[this.blockID];
 			world.setBlockMetadataWithNotify(blockX, blockY, blockZ, 0b1 | rotateBit);
-			world.playBlockSoundEffect(entityplayer, (float)blockX + 0.5f, (float)blockY + 0.5f, (float)blockZ + 0.5f, blockSlab, EnumBlockSoundEffectType.PLACE);
-			itemstack.consumeItem(entityplayer);
+			world.playBlockSoundEffect(player, (float) blockX + 0.5f, (float) blockY + 0.5f, (float) blockZ + 0.5f, blockSlab, EnumBlockSoundEffectType.PLACE);
+			stack.consumeItem(player);
 			return true;
 		}
 		if (world.canBlockBePlacedAt(this.blockID, blockX, blockY, blockZ, false, side)) {
 			Block block = Block.blocksList[this.blockID];
-			if (world.setBlockAndMetadataWithNotify(blockX, blockY, blockZ, this.blockID, this.getPlacedBlockMetadata(itemstack.getMetadata()))) {
-				Block.blocksList[this.blockID].onBlockPlaced(world, blockX, blockY, blockZ, side, entityplayer, yPlaced);
-				world.playBlockSoundEffect(entityplayer, (float)blockX + 0.5f, (float)blockY + 0.5f, (float)blockZ + 0.5f, block, EnumBlockSoundEffectType.PLACE);
-				itemstack.consumeItem(entityplayer);
+			if (world.setBlockAndMetadataWithNotify(blockX, blockY, blockZ, this.blockID, this.getPlacedBlockMetadata(stack.getMetadata()))) {
+				Block.blocksList[this.blockID].onBlockPlaced(world, blockX, blockY, blockZ, side, player, yPlaced);
+				world.playBlockSoundEffect(player, (float) blockX + 0.5f, (float) blockY + 0.5f, (float) blockZ + 0.5f, block, EnumBlockSoundEffectType.PLACE);
+				stack.consumeItem(player);
 			}
 			return true;
 		}
