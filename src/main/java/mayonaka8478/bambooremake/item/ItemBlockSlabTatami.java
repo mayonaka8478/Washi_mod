@@ -14,8 +14,9 @@ public class ItemBlockSlabTatami extends ItemBlock {
 	public ItemBlockSlabTatami(Block block) {
 		super(block);
 	}
+
 	@Override
-	public boolean onItemUse(ItemStack itemstack, EntityPlayer entityplayer, World world, int blockX, int blockY, int blockZ, Side side, double xPlaced, double yPlaced) {
+	public boolean onUseItemOnBlock(ItemStack itemstack, EntityPlayer entityplayer, World world, int blockX, int blockY, int blockZ, Side side, double xPlaced, double yPlaced) {
 		int id = world.getBlockId(blockX, blockY, blockZ);
 		byte rotateBit = (byte) (world.getBlockMetadata(blockX, blockY, blockZ) & 0b100);
 		int meta = world.getBlockMetadata(blockX, blockY, blockZ) & 0b11;
