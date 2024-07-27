@@ -1,8 +1,8 @@
 {
   "schemaVersion": 1,
-	"id": "bambooremake",
+	"id": "washimod",
   "version": "${version}",
-	"name": "Bamboo Remake",
+	"name": "Washi Mod",
 	"description": "Japanese style mod for Better than Adventure, based on Bamboo mod developed by ruby",
   "authors": [
 		"mayonaka8478"
@@ -18,30 +18,30 @@
   "environment": "*",
   "entrypoints": {
     "main": [
-			"mayonaka8478.bambooremake.BambooRemake"
+			"mayonaka8478.washimod.WashiMod"
     ],
 		"beforeGameStart": [
-			"mayonaka8478.bambooremake.BambooRemake"
+			"mayonaka8478.washimod.WashiMod"
 		],
 		"afterGameStart": [
-			"mayonaka8478.bambooremake.BambooRemake"
+			"mayonaka8478.washimod.WashiMod"
 		],
 		"recipesReady": [
-			"mayonaka8478.bambooremake.ModRecipe"
+			"mayonaka8478.washimod.ModRecipe"
 		],
 		"client": [
-			"mayonaka8478.bambooremake.BambooRemakeClient"
+			"mayonaka8478.washimod.WashiModClient"
 		],
 		"terrain-api": [
-			"mayonaka8478.bambooremake.TerrainAPIPlugin"
+			"mayonaka8478.washimod.TerrainAPIPlugin"
 		]
 	},
   "mixins": [
-		"bambooremake.mixins.json"
+		"washimod.mixins.json"
   ],
 
   "depends": {
-		"minecraft": "~7.2-beta",
+		"minecraft": "~7.2",
 		"fabricloader": ">=0.15.6-babric.6-bta",
 		"dragonfly": ">=1.5.0-7.2-pre2"
   },

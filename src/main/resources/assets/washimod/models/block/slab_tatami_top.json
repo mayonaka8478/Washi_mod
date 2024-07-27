@@ -1,0 +1,84 @@
+{
+  "credit": "Made with Blockbench",
+  "ambientocclusion": false,
+  "textures": {
+    "particle": "washimod:block/slab_tatami_side",
+    "side": "washimod:block/slab_tatami_side",
+    "bottom": "washimod:block/tatami"
+  },
+  "elements": [
+    {
+      "from": [
+        0,
+        8,
+        0
+      ],
+      "to": [
+        16,
+        16,
+        16
+      ],
+      "faces": {
+        "north": {
+          "uv": [
+            0,
+            0,
+            16,
+            8
+          ],
+          "texture": "#side",
+          "cullface": "north"
+        },
+        "east": {
+          "uv": [
+            0,
+            0,
+            16,
+            8
+          ],
+          "texture": "#side",
+          "cullface": "east"
+        },
+        "south": {
+          "uv": [
+            0,
+            0,
+            16,
+            8
+          ],
+          "texture": "#side",
+          "cullface": "south"
+        },
+        "west": {
+          "uv": [
+            0,
+            0,
+            16,
+            8
+          ],
+          "texture": "#side",
+          "cullface": "west"
+        },
+        "up": {
+          "uv": [
+            0,
+            0,
+            16,
+            16
+          ],
+          "texture": "#bottom",
+          "cullface": "up"
+        },
+        "down": {
+          "uv": [
+            0,
+            0,
+            16,
+            16
+          ],
+          "texture": "#bottom"
+        }
+      }
+    }
+  ]
+}

@@ -1,0 +1,16 @@
+{
+  "variants": {
+    "axis=x": {
+      "model": "washimod:block/bamboo_cut_axis",
+      "x": 90,
+      "y": 90
+    },
+    "axis=y": {
+      "model": "washimod:block/bamboo_cut"
+    },
+    "axis=z": {
+      "model": "washimod:block/bamboo_cut_axis",
+      "x": 90
+    }
+  }
+}

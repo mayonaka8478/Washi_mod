@@ -1,0 +1,31 @@
+{
+  "variants": {
+    "facing=z,half=bottom": {
+      "model": "washimod:block/slab_tatami",
+      "uvlock": true
+    },
+    "facing=z,half=double": {
+      "model": "washimod:block/slab_tatami_double",
+      "uvlock": true
+    },
+    "facing=z,half=top": {
+      "model": "washimod:block/slab_tatami_top",
+      "uvlock": true
+    },
+    "facing=x,half=bottom": {
+      "model": "washimod:block/slab_tatami",
+      "uvlock": true,
+      "y": 90
+    },
+    "facing=x,half=double": {
+      "model": "washimod:block/slab_tatami_double",
+      "uvlock": true,
+      "y": 90
+    },
+    "facing=x,half=top": {
+      "model": "washimod:block/slab_tatami_top",
+      "uvlock": true,
+      "y": 90
+    }
+  }
+}

@@ -1,0 +1,228 @@
+[
+  {
+    "name": "washimod:workbench/bamboo_works",
+    "type": "minecraft:crafting/shaped",
+    "pattern": [
+      " B ",
+      "B B",
+      " B "
+    ],
+    "symbols": [
+      {
+        "symbol": "B",
+        "stack": {
+          "key": "item.washimod.bamboo",
+          "amount": 1,
+          "meta": 0
+        }
+      }
+    ],
+    "result": {
+      "key": "tile.washimod.bamboo_works",
+      "amount": 1,
+      "meta": 0
+    },
+    "consumeContainers": false
+  },
+  {
+    "name": "washimod:workbench/slab_bamboo_works",
+    "type": "minecraft:crafting/shaped",
+    "pattern": [
+      "WWW"
+    ],
+    "symbols": [
+      {
+        "symbol": "W",
+        "stack": {
+          "key": "tile.washimod.bamboo_works",
+          "amount": 1,
+          "meta": 0
+        }
+      }
+    ],
+    "result": {
+      "key": "tile.washimod.slab.bamboo_works",
+      "amount": 6,
+      "meta": 0
+    },
+    "consumeContainers": false
+  },
+  {
+    "name": "washimod:workbench/stairs_bamboo_works",
+    "type": "minecraft:crafting/shaped",
+    "pattern": [
+      "W  ",
+      "WW ",
+      "WWW"
+    ],
+    "symbols": [
+      {
+        "symbol": "W",
+        "stack": {
+          "key": "tile.washimod.bamboo_works",
+          "amount": 1,
+          "meta": 0
+        }
+      }
+    ],
+    "result": {
+      "key": "tile.washimod.stairs.bamboo_works",
+      "amount": 6,
+      "meta": 0
+    },
+    "consumeContainers": false
+  },
+  {
+    "name": "washimod:workbench/bamboo_cut",
+    "type": "minecraft:crafting/shaped",
+    "pattern": [
+      "BB",
+      "BB"
+    ],
+    "symbols": [
+      {
+        "symbol": "B",
+        "stack": {
+          "key": "item.washimod.bamboo",
+          "amount": 1,
+          "meta": 0
+        }
+      }
+    ],
+    "result": {
+      "key": "tile.washimod.bamboo_cut",
+      "amount": 1,
+      "meta": 0
+    },
+    "consumeContainers": false
+  },
+  {
+    "name": "washimod:workbench/tatami",
+    "type": "minecraft:crafting/shaped",
+    "pattern": [
+      " S ",
+      "SBS",
+      " S "
+    ],
+    "symbols": [
+      {
+        "symbol": "B",
+        "stack": {
+          "key": "tile.washimod.bamboo_works",
+          "amount": 1,
+          "meta": 0
+        }
+      },
+      {
+        "symbol": "S",
+        "stack": {
+          "key": "item.wheat",
+          "amount": 1,
+          "meta": 0
+        }
+      }
+    ],
+    "result": {
+      "key": "tile.washimod.tatami",
+      "amount": 2,
+      "meta": 0
+    },
+    "consumeContainers": false
+  },
+  {
+    "name": "washimod:workbench/slab_tatami",
+    "type": "minecraft:crafting/shaped",
+    "pattern": [
+      "TTT"
+    ],
+    "symbols": [
+      {
+        "symbol": "T",
+        "stack": {
+          "key": "tile.washimod.tatami",
+          "amount": 1,
+          "meta": 0
+        }
+      }
+    ],
+    "result": {
+      "key": "tile.washimod.slab.tatami",
+      "amount": 6,
+      "meta": 0
+    },
+    "consumeContainers": false
+  },
+  {
+    "name": "washimod:workbench/stairs_tatami",
+    "type": "minecraft:crafting/shaped",
+    "pattern": [
+      "T  ",
+      "TT ",
+      "TTT"
+    ],
+    "symbols": [
+      {
+        "symbol": "T",
+        "stack": {
+          "key": "tile.washimod.tatami",
+          "amount": 1,
+          "meta": 0
+        }
+      }
+    ],
+    "result": {
+      "key": "tile.washimod.stairs.tatami",
+      "amount": 6,
+      "meta": 0
+    },
+    "consumeContainers": false
+  },
+  {
+    "name": "washimod:workbench/slab_tatami_suntan",
+    "type": "minecraft:crafting/shaped",
+    "pattern": [
+      "TTT"
+    ],
+    "symbols": [
+      {
+        "symbol": "T",
+        "stack": {
+          "key": "tile.washimod.tatami_suntan",
+          "amount": 1,
+          "meta": 0
+        }
+      }
+    ],
+    "result": {
+      "key": "tile.washimod.slab.tatami_suntan",
+      "amount": 6,
+      "meta": 0
+    },
+    "consumeContainers": false
+  },
+  {
+    "name": "washimod:workbench/stairs_tatami_suntan",
+    "type": "minecraft:crafting/shaped",
+    "pattern": [
+      "T  ",
+      "TT ",
+      "TTT"
+    ],
+    "symbols": [
+      {
+        "symbol": "T",
+        "stack": {
+          "key": "tile.washimod.tatami_suntan",
+          "amount": 1,
+          "meta": 0
+        }
+      }
+    ],
+    "result": {
+      "key": "tile.washimod.stairs.tatami_suntan",
+      "amount": 6,
+      "meta": 0
+    },
+    "consumeContainers": false
+  }
+]
