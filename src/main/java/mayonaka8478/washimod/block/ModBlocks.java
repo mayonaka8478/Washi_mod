@@ -23,7 +23,35 @@ import turniplabs.halplibe.helper.BlockBuilder;
 import java.util.Random;
 
 public class ModBlocks {
-
+	//bamboo_shoot
+	public static final Block bamboo_shoot = new BlockBuilder(WashiMod.MOD_ID)
+		.setResistance(3.0f)
+		.setHardness(0.0f)
+		.setBlockSound(BlockSounds.STONE)
+		.setBlockModel(block -> new BlockModelCrossedSquares<>(block).withTextures("washimod:block/bamboo_shoot"))
+		.setTags(BlockTags.MINEABLE_BY_HOE)
+		.setIcon("washimod:item/bamboo_shoot")
+		.build(new BambooShoot("bamboo_shoot", IDUtils.getCurrPlantsBlockId()));
+	//bamboo
+	public static final Block bamboo = new BlockBuilder(WashiMod.MOD_ID)
+		.setResistance(3.0f)
+		.setHardness(0.0f)
+		.setBlockSound(BlockSounds.STONE)
+		.setBlockModel(block -> new BlockModelBamboo<>(block).withTextures("washimod:block/bamboo"))
+		.build(new Bamboo("bamboo", IDUtils.getCurrPlantsBlockId()));
+	//bamboo_cut
+	public static final Block bamboo_cut = new BlockBuilder(WashiMod.MOD_ID)
+		.setResistance(3.0f)
+		.setHardness(0.0f)
+		.setBlockSound(BlockSounds.STONE)
+		.setIcon("washimod:block/bamboo")
+		.setBlockModel(block -> new DFBlockModelBuilder(WashiMod.MOD_ID)
+			.setBlockModel("block/bamboo_cut.json")
+			.setBlockState("bamboo_cut.json")
+			.setMetaStateInterpreter(new BambooCutMetaStateInterpreter())
+			.setRender3D(false)
+			.build(block))
+		.build(new BambooCut("bamboo_cut", IDUtils.getCurrPlantsBlockId()));
 	//tatami
 	public static final Block tatami = new BlockBuilder(WashiMod.MOD_ID)
 		.setResistance(5.0f)
@@ -33,7 +61,7 @@ public class ModBlocks {
 			return new BlockModelAxisAligned<>(block).withTextures("washimod:block/tatami_top", "washimod:block/tatami");
 		})
 		.setTicking(true)
-		.build(new BlockAxisAligned("tatami", IDUtils.getCurrBlockId(), Material.grass) {
+		.build(new BlockAxisAligned("tatami", IDUtils.getCurrBuildingBlockId(), Material.grass) {
 			public void updateTick(World world, int x, int y, int z, Random rand) {
 				if (rand.nextInt(5) == 0) {
 					if (world.dimension == Dimension.nether) {
@@ -57,7 +85,7 @@ public class ModBlocks {
 			.setRender3D(true)
 			.build(block))
 		.setTicking(true)
-		.build(new SlabTatami(tatami, IDUtils.getCurrBlockId()) {
+		.build(new SlabTatami(tatami, IDUtils.getCurrBuildingBlockId()) {
 			public void updateTick(World world, int x, int y, int z, Random rand) {
 				if (rand.nextInt(5) == 0) {
 					if (world.dimension == Dimension.nether) {
@@ -80,7 +108,7 @@ public class ModBlocks {
 			.setRender3D(true)
 			.build(block))
 		.setTicking(true)
-		.build(new BlockStairs(tatami, IDUtils.getCurrBlockId()) {
+		.build(new BlockStairs(tatami, IDUtils.getCurrBuildingBlockId()) {
 			public void updateTick(World world, int x, int y, int z, Random rand) {
 				if (rand.nextInt(5) == 0) {
 					if (world.dimension == Dimension.nether) {
@@ -97,7 +125,7 @@ public class ModBlocks {
 		.setBlockModel(block -> {
 			return new BlockModelAxisAligned<>(block).withTextures("washimod:block/tatami_suntan_top", "washimod:block/tatami_suntan");
 		})
-		.build(new BlockAxisAligned("tatami_suntan", IDUtils.getCurrBlockId(), Material.grass));
+		.build(new BlockAxisAligned("tatami_suntan", IDUtils.getCurrBuildingBlockId(), Material.grass));
 	//slab_tatami_suntan
 	public static final Block slab_tatami_suntan = new BlockBuilder(WashiMod.MOD_ID)
 		.setResistance(5.0f)
@@ -112,7 +140,7 @@ public class ModBlocks {
 			.setMetaStateInterpreter(new SlabTatamiMetaStateInterpreter())
 			.setRender3D(true)
 			.build(block))
-		.build(new SlabTatami(tatami_suntan, IDUtils.getCurrBlockId()));
+		.build(new SlabTatami(tatami_suntan, IDUtils.getCurrBuildingBlockId()));
 	//stairs_tatami_suntan
 	public static final Block stairs_tatami_suntan = new BlockBuilder(WashiMod.MOD_ID)
 		.setResistance(5.0f)
@@ -126,7 +154,7 @@ public class ModBlocks {
 			.setMetaStateInterpreter(new StairsTatamiMetaStateInterpreter())
 			.setRender3D(true)
 			.build(block))
-		.build(new BlockStairs(tatami_suntan, IDUtils.getCurrBlockId()));
+		.build(new BlockStairs(tatami_suntan, IDUtils.getCurrBuildingBlockId()));
 	//bamboo_works
 	public static final Block bamboo_works = new BlockBuilder(WashiMod.MOD_ID)
 		.setResistance(3.0f)
@@ -135,7 +163,7 @@ public class ModBlocks {
 		.setFlammability(5, 20)
 		.setTags(BlockTags.MINEABLE_BY_AXE, BlockTags.FENCES_CONNECT)
 		.setTextures("washimod:block/bamboo_works")
-		.build(new Block("bamboo_works", IDUtils.getCurrBlockId(), Material.wood));
+		.build(new Block("bamboo_works", IDUtils.getCurrBuildingBlockId(), Material.wood));
 	//slab_bamboo_works
 	public static final Block slab_bamboo_works = new BlockBuilder(WashiMod.MOD_ID)
 		.setResistance(3.0f)
@@ -148,7 +176,7 @@ public class ModBlocks {
 		.setFlammability(5, 20)
 		.setTags(BlockTags.MINEABLE_BY_AXE)
 		.setTextures("washimod:block/bamboo_works")
-		.build(new BlockSlab(bamboo_works, IDUtils.getCurrBlockId()));
+		.build(new BlockSlab(bamboo_works, IDUtils.getCurrBuildingBlockId()));
 	//stairs_bamboo_works
 	public static final Block stairs_bamboo_works = new BlockBuilder(WashiMod.MOD_ID)
 		.setResistance(3.0f)
@@ -160,36 +188,7 @@ public class ModBlocks {
 		.setFlammability(5, 20)
 		.setTags(BlockTags.MINEABLE_BY_AXE)
 		.setTextures("washimod:block/bamboo_works")
-		.build(new BlockStairs(bamboo_works, IDUtils.getCurrBlockId()));
-	//bamboo_shoot
-	public static final Block bamboo_shoot = new BlockBuilder(WashiMod.MOD_ID)
-		.setResistance(3.0f)
-		.setHardness(0.0f)
-		.setBlockSound(BlockSounds.STONE)
-		.setBlockModel(block -> new BlockModelCrossedSquares<>(block).withTextures("washimod:block/bamboo_shoot"))
-		.setTags(BlockTags.MINEABLE_BY_HOE)
-		.setIcon("washimod:item/bamboo_shoot")
-		.build(new BambooShoot("bamboo_shoot", IDUtils.getCurrBlockId()));
-	//bamboo
-	public static final Block bamboo = new BlockBuilder(WashiMod.MOD_ID)
-		.setResistance(3.0f)
-		.setHardness(0.0f)
-		.setBlockSound(BlockSounds.STONE)
-		.setBlockModel(block -> new BlockModelBamboo<>(block).withTextures("washimod:block/bamboo"))
-		.build(new Bamboo("bamboo", IDUtils.getCurrBlockId()));
-	//bamboo_cut
-	public static final Block bamboo_cut = new BlockBuilder(WashiMod.MOD_ID)
-		.setResistance(3.0f)
-		.setHardness(0.0f)
-		.setBlockSound(BlockSounds.STONE)
-		.setIcon("washimod:block/bamboo")
-		.setBlockModel(block -> new DFBlockModelBuilder(WashiMod.MOD_ID)
-			.setBlockModel("block/bamboo_cut.json")
-			.setBlockState("bamboo_cut.json")
-			.setMetaStateInterpreter(new BambooCutMetaStateInterpreter())
-			.setRender3D(false)
-			.build(block))
-		.build(new BambooCut("bamboo_cut", IDUtils.getCurrBlockId()));
+		.build(new BlockStairs(bamboo_works, IDUtils.getCurrBuildingBlockId()));
 	public static void createBlocks() {
 	}
 }

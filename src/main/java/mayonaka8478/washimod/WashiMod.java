@@ -18,12 +18,23 @@ public class WashiMod implements ModInitializer, GameStartEntrypoint, RecipeEntr
 
 	static {
 		Properties prop = new Properties();
-		prop.setProperty("starting_block_id", "8401");
-		prop.setProperty("starting_item_id", "28401");
+		prop.setProperty("starting_block_id_plants", "8401");
+		prop.setProperty("starting_block_id_building", "8501");
+		prop.setProperty("starting_block_id_others", "8601");
+		prop.setProperty("starting_item_id_plants", "28401");
+		prop.setProperty("starting_item_id_tools", "28501");
+		prop.setProperty("starting_item_id_foods", "28601");
+		prop.setProperty("starting_item_id_others", "28701");
 		ConfigHandler config = new ConfigHandler(MOD_ID, prop);
 		IDUtils.initIds(
-			config.getInt("starting_block_id"),
-			config.getInt("starting_item_id"));
+			config.getInt("starting_block_id_plants"),
+			config.getInt("starting_block_id_building"),
+			config.getInt("starting_block_id_others"),
+			config.getInt("starting_item_id_plants"),
+			config.getInt("starting_item_id_tools"),
+			config.getInt("starting_item_id_plants"),
+			config.getInt("starting_item_id_others"));
+
 		config.updateConfig();
 	}
     @Override

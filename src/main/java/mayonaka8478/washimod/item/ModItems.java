@@ -6,7 +6,7 @@ import net.minecraft.core.item.Item;
 import turniplabs.halplibe.helper.ItemBuilder;
 
 public class ModItems {
-	public static final Item bamboo = new ItemBuilder(WashiMod.MOD_ID).build(new Item("bamboo", IDUtils.getCurrItemId()));
+	public static final Item bamboo = new ItemBuilder(WashiMod.MOD_ID).build(new Item("bamboo", IDUtils.getCurrPlantsItemId()));
 
 	public static void createItems() {
 
