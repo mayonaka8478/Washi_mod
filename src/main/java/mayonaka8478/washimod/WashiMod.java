@@ -20,7 +20,7 @@ public class WashiMod implements ModInitializer, GameStartEntrypoint, RecipeEntr
 		Properties prop = new Properties();
 		prop.setProperty("starting_block_id_plants", "8401");
 		prop.setProperty("starting_block_id_building", "8501");
-		prop.setProperty("starting_block_id_others", "8601");
+		prop.setProperty("starting_block_id_others", "8701");
 		prop.setProperty("starting_item_id_plants", "28401");
 		prop.setProperty("starting_item_id_tools", "28501");
 		prop.setProperty("starting_item_id_foods", "28601");
