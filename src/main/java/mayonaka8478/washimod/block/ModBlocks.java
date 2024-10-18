@@ -23,6 +23,7 @@ import turniplabs.halplibe.helper.BlockBuilder;
 import java.util.Random;
 
 public class ModBlocks {
+	//PlantsBlocks
 	//bamboo_shoot
 	public static final Block bamboo_shoot = new BlockBuilder(WashiMod.MOD_ID)
 		.setResistance(3.0f)
@@ -52,6 +53,21 @@ public class ModBlocks {
 			.setRender3D(false)
 			.build(block))
 		.build(new BambooCut("bamboo_cut", IDUtils.getCurrPlantsBlockId()));
+	//log_paper_bush
+	public static final Block log_paper_bush = new BlockBuilder(WashiMod.MOD_ID)
+		.setResistance(3.0f)
+		.setHardness(2.0f)
+		.setBlockSound(BlockSounds.WOOD)
+		.setIcon("washimod:block/log_paper_bush")
+		.setBlockModel(block -> new DFBlockModelBuilder(WashiMod.MOD_ID)
+			.setBlockModel("block/log_paper_bush.json")
+			.setBlockState("log_paper_bush.json")
+			.setMetaStateInterpreter(new LogPaperBushMetaStateInterpreter())
+			.setRender3D(false)
+			.build(block))
+		.build(new LogPaperBush("log.paper_bush", IDUtils.getCurrPlantsBlockId()));
+
+	//BuildingBlocks
 	//tatami
 	public static final Block tatami = new BlockBuilder(WashiMod.MOD_ID)
 		.setResistance(5.0f)
