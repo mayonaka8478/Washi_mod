@@ -1,14 +1,16 @@
 package mayonaka8478.washimod;
 
-import net.minecraft.core.block.Block;
+import net.minecraft.core.block.Blocks;
 import net.minecraft.core.world.World;
 import net.minecraft.core.world.generate.feature.MethodParametersAnnotation;
-import net.minecraft.core.world.generate.feature.WorldFeature;
+import net.minecraft.core.world.generate.feature.WorldFeatureInterface;
+import net.minecraft.core.world.pos.TilePos;
+import net.minecraft.core.world.pos.TilePosc;
+import org.jetbrains.annotations.NotNull;
 
 import java.util.Random;
 
-public class WorldFeatureBambooShoots
-	extends WorldFeature {
+public class WorldFeatureBambooShoots implements WorldFeatureInterface {
 	private final int plantBlockId;
 
 	@MethodParametersAnnotation(names = {"plantBlockId"})
@@ -17,14 +19,15 @@ public class WorldFeatureBambooShoots
 	}
 
 	@Override
-	public boolean generate(World world, Random random, int x, int y, int z) {
+	public boolean place(@NotNull World world, @NotNull Random random, @NotNull TilePosc tilePos) {
+		//WashiMod.LOGGER.info("Bamboo shoots will be generated around {} in {}.", tilePos, world.dimension);
+
 		for (int l = 0; l < 8; ++l) {
-			int k1;
-			int j1;
-			int i1 = x + random.nextInt(2) - random.nextInt(2);
-			if (!world.isAirBlock(i1, j1 = y + random.nextInt(1) - random.nextInt(1), k1 = z + random.nextInt(2) - random.nextInt(2)) || !Block.blocksList[this.plantBlockId].canBlockStay(world, i1, j1, k1))
+			TilePos placementPos = tilePos.add(random.nextInt(2) - random.nextInt(2), 0, random.nextInt(2) - random.nextInt(2), new TilePos());
+			if (!world.isAirBlock(placementPos) || !Blocks.getBlock(plantBlockId).canStay(world, placementPos)) {
 				continue;
-			world.setBlock(i1, j1, k1, this.plantBlockId);
+			}
+			world.setBlockType(placementPos, Blocks.getBlock(plantBlockId));
 		}
 		return true;
 	}
