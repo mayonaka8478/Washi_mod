@@ -5,15 +5,16 @@ import mayonaka8478.washimod.item.ModItems;
 import net.fabricmc.api.ModInitializer;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import turniplabs.halplibe.HalpLibe;
+import turniplabs.halplibe.event.defs.CommonEvents;
 import turniplabs.halplibe.util.ConfigHandler;
-import turniplabs.halplibe.util.GameStartEntrypoint;
-import turniplabs.halplibe.util.RecipeEntrypoint;
+import turniplabs.halplibe.util.dependency.Key;
 
 import java.util.Properties;
 
 
-public class WashiMod implements ModInitializer, GameStartEntrypoint, RecipeEntrypoint {
-	public static final String MOD_ID = "washimod";
+public class WashiMod implements ModInitializer {
+	public static final String MOD_ID = HalpLibe.registerMod("washimod");
     public static final Logger LOGGER = LoggerFactory.getLogger(MOD_ID);
 
 	static {
@@ -37,29 +38,23 @@ public class WashiMod implements ModInitializer, GameStartEntrypoint, RecipeEntr
 
 		config.updateConfig();
 	}
+
     @Override
     public void onInitialize() {
 		LOGGER.info("Washi Mod");
+		CommonEvents.BEFORE_GAME_START.listen(Key.of(MOD_ID), WashiMod::beforeGameStart);
+		CommonEvents.AFTER_GAME_START.listen(Key.of(MOD_ID), WashiMod::afterGameStart);
+		CommonEvents.AFTER_BLOCK_INIT.listen(Key.of(MOD_ID), ModBlocks::createBlocks);
+		CommonEvents.AFTER_ITEM_INIT.listen(Key.of(MOD_ID), ModItems::createItems);
+		CommonEvents.RECIPES_NAMESPACE_INIT.listen(Key.of(MOD_ID), ModRecipes::initNamespaces);
+		CommonEvents.RECIPES_READY.listen(Key.of(MOD_ID), ModRecipes::onRecipesReady);
     }
 
-	@Override
-	public void beforeGameStart() {
-		ModBlocks.createBlocks();
-		ModItems.createItems();
-	}
-
-	@Override
-	public void afterGameStart() {
+	private static void beforeGameStart() {
 
 	}
 
-	@Override
-	public void onRecipesReady() {
-
-	}
-
-	@Override
-	public void initNamespaces() {
+	private static void afterGameStart() {
 
 	}
 }
